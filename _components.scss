@@ -1,0 +1,635 @@
+$Primary: #eb2f64;
+$Primary-light: #FF3366;
+$Primary-dark: #BA265D;
+
+$Grey-light-1: #faf9f9;
+$Grey-light-2: #f4f2f2;
+$Grey-light-3: #f0eeee;
+$Grey-light-4: #ccc;
+
+$Grey-dark-1: #333;
+$Grey-dark-2: #777;
+$Grey-dark-3: #999;
+ 
+////////HEADER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+.logo{
+    height: 3.25rem;
+    margin: 3rem;
+
+
+}
+
+//////////////
+////SEARCH
+.search{
+    //background-color: orangered;
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media only screen and(max-width:$bp-smallest){
+        order: 1;
+        //flex: 0 0 100%;
+        
+
+        //font-size: 50%;
+       
+ 
+     }
+    &__input{
+        font-family: inherit;
+        font-size: inherit;
+        background-color: $Grey-light-2;
+        border: none;
+        padding: 0.7rem 2rem;
+        border-radius: 10rem;
+        height: 3rem;
+        width: 90%;
+        transition: all .3s;
+        margin-right: -3.4rem;
+        
+        &:focus{
+            width: 100%;
+            outline: none;
+            background-color: $Grey-light-3;
+
+
+        }
+        &::-webkit-input-placeholder{
+
+            font-weight: 100;
+            color: $Grey-light-4;
+
+        }
+    
+
+    }
+
+    &__input:focus + &__button{
+        background-color: $Grey-light-3;
+    }
+    &__button{
+        border: none;
+        background-color:$Grey-light-2;
+        &:focus{
+            outline: none;
+        }
+        &:active{
+            transform: translateY(2px);
+        }
+    }
+    &__icon{
+        height: 2.25rem;
+        width: 2.25rem;
+        fill: $Grey-dark-1;
+
+    }
+}
+
+
+
+///////////////////////////////////////
+////USER NAVIGATION
+.user-nav{
+    //background-color: greenyellow;
+    display: flex;
+    align-items: center;
+   align-self: stretch;//ye pura stretch krdeta h 
+    &>*{
+        padding: 0 2rem;
+        cursor: pointer;
+        height: 100%;//hover shi se hojae
+        display: flex;//user name k lie
+        align-items: center;//centre kiya h userpic k liye
+    }
+
+
+    &>*:hover{
+        background-color: $Grey-light-2;
+
+    }
+
+    &__icon-box{
+        display: flex;
+        align-items: center;
+        position: relative;//red notification  k liye
+
+    }
+    &__icons{
+        height: 2.25rem;
+        width: 2.25rem;
+        fill: $Grey-dark-2;// color vsa bna deta  h 
+      
+      
+    }
+    &__notification{
+        font-size: 0.8rem;
+        height: 1.75rem;
+        width: 1.75rem;
+        border-radius: 100px;
+        background-color: $Primary;
+        color: #fff;
+        position: absolute;
+        top: 1.5rem;
+        right: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__user{}
+    &__user-photo{
+        height: 3.75rem;
+        border-radius: 50%;
+        margin-right: 1rem;
+
+    }
+    &__user-name{}
+}
+////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+////SIDE NAVIGATION/\\\\\\\\\\\
+
+.side-nav{
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
+    @media only screen and (max-width:$bp-medium){
+        display: flex;
+        margin: 0;
+    }
+
+    
+    &__item{
+        position: relative;
+
+        &:not(:last-child){
+            margin-bottom: .5rem;
+            @media only screen and (max-width:$bp-medium){
+                margin-bottom: 0;
+            }
+    
+        }
+        @media only screen and (max-width:$bp-medium){
+            flex: 1;
+        }
+
+        
+    }
+   
+    &__item::before{//line si red vali i mean primary vali
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: $Primary;
+        transform: scaleY(0);
+        transition: transform .2s,
+        width .4s .2s,
+        background-color .1s;
+
+       // transform-origin: bottom;//niche se upr aayega
+       // @supports(-webkit-mask-image: url()) or (-webkit-mask-image: url()){   }
+    }
+    &__item:hover::before,
+    &__item--active::before{
+        transform: scaleY(1);//this is at hover state
+        width: 100%;//
+
+    }
+    &__item:active::before{
+        color: $Primary-light;
+    }
+    &__link:link,
+    &__link:visited{
+        color: $Grey-light-1;
+        text-decoration: none;
+        z-index: 10;//z-index works only on specified position
+        position: relative;
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 3rem;
+        display: flex;//centre krne k liye
+        align-items: center;//icon or text alg alg hore the
+
+        @media only screen and (max-width:$bp-medium){
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width:$bp-small){
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+            
+        }
+
+
+    }
+    &__icon{
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-right: 2rem;
+        fill: currentColor;
+
+        @media only screen and (max-width:$bp-small){
+           margin-right:0 ;
+           margin-bottom: 7px;
+           width: 1.5rem;
+           height: 1.5rem;
+            
+        }
+
+    }
+}
+
+
+
+////LEGAL TEXT\\\\
+.legal{
+    font-size: 1.2rem;
+    text-align: center;
+    color: $Grey-light-4;
+    padding: 2.5rem;
+    @media only screen and (max-width:$bp-medium){
+       display: none;
+    }
+}
+
+
+
+////GALLERY\\\
+.gallery{
+    display: flex;
+
+    &__photo{
+        width: 100%;
+        display: block;//ek baar dekho ,image should be
+
+
+
+    }
+}
+
+
+////HOTEL OVERVIEW\\\\\\
+.pila{
+    //display: flex;
+  //  justify-content: stretch;
+}
+
+.overview{
+    display: flex;
+   // justify-content: space-between;
+   align-items: center;
+   border-bottom: 1px solid $Grey-light-3;
+
+
+    &__heading{
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.5rem 3rem;
+
+        @media only screen and (max-width:$bp-small){
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+
+         }
+ 
+
+
+    }
+
+    &__stars{
+        //flex: 1;//saari chij lelga vo bich ka gap isi se aaya h
+       margin-right: auto;//ye shi  h bich m gap k liye
+       display: flex;
+    }
+    &__icon-star,
+    &__icon-location{
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: $Primary;
+    }
+    &__location{
+        font-size: 1.25rem;
+        display: flex;
+        vertical-align: center
+        ;
+       
+    }
+    &__rating{
+        background-color: $Primary;
+        margin-left: 3rem;
+        color: #fff;
+        padding: 0 2.25rem;
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        //justify-content: stretch;
+        align-self: stretch; //upr b yhi use ki thi
+
+        @media only screen and (max-width:$bp-small){
+          padding: 1 1.5rem;
+             
+         }
+ 
+
+    }
+    &__rating-average{
+        font-size: 2.25rem;
+        font-weight: 300;
+        @media only screen and (max-width:$bp-small){
+          font-size:.8rem ;
+
+             
+         }
+ 
+    }
+    &__rating-count{
+        font-size: .8rem;
+        text-transform: uppercase;
+        @media only screen and (max-width:$bp-small){
+           font-size:.5rem ;
+             
+         }
+ 
+
+    }
+}
+@keyframes pulsate{
+    0%{
+        transform: scale(1);
+        box-shadow: none;
+    }
+    50%{
+        transform: scale(1.05);
+        box-shadow: 0 1rem 4rem rgba( #000000,  .25);
+    }
+    100%{
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+.btn-inline{
+    border: none;
+    color: $Primary;
+    font-size: inherit;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    & span{
+        margin-left: 3px;
+        transition: margin-left .2s;
+
+    }
+    &:hover{
+        color: $Grey-dark-3;
+
+        span{
+            margin-left: 8px;
+        }
+    }
+
+    &:focus{
+        outline: none;
+        animation: pulsate 2s ease-out;
+    }
+
+}
+///////////////
+///paragraph
+.paragraph:not(:last-of-type){
+    margin-bottom: 2rem;
+
+
+}
+////@extendlist
+
+.list{
+    list-style: none;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: 1px solid $Grey-light-2;
+    border-bottom:1px solid $Grey-light-2 ;
+
+    display: flex;
+    flex-wrap: wrap;//new ek sath laadega 
+
+
+    &__item{
+        flex: 0 0 50%;
+        margin-bottom: 7px;
+         
+
+    }
+    &__item::before{
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        width: 1rem; 
+        margin-right: 7px;
+       // background-image: url(img/chevron-thin-right.svg);
+       // background-size: cover;
+
+        //new browser
+        background-color: $Primary;
+       -webkit-mask-image: url(img/chevron-thin-right.svg);
+       -webkit-mask-size: cover;
+
+    }
+}
+
+///recommend
+.recommend{
+    font-size: 1.3rem;
+    color: $Grey-dark-3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__count{
+      //  margin-right: auto;
+
+    }
+    &__friends{
+        display: flex;
+
+    }
+    &__photo{
+        box-sizing: content-box;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+
+        &:not(:last-child){
+            margin-right: -2rem;
+        }
+    }
+}
+////Reviews \\\\\\\\
+.review{
+    background-color: #fff;
+    box-shadow: 0 4rem 6rem rgba( #000000,  .25);
+    padding: 3rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    overflow: hidden;
+
+    @media only screen and (max-width:$bp-medium){
+        padding: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    
+
+    &__text{
+        margin-bottom: 2rem;
+        z-index: 10;
+        position: relative;
+    }
+    &__user{
+        display: flex;
+        align-items: center;
+    }
+    &__photo{
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        margin-right: 4.5rem;
+
+    }
+    &__user-box{
+        margin-right: auto;
+
+    }
+    &__user-name{
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: .4rem;
+    }
+    &__user-date{
+        font-size: 1rem;
+        color: $Grey-dark-3;
+    }
+    &__rating{
+        color: $Primary;
+        font-size: 2.2rem;
+        font-weight: 600;
+
+    }
+    &::before{
+        content: "\201C";
+        position: absolute;
+        top: -2.75rem;
+        left: -1rem;
+        line-height: 1;
+        font-size: 20rem;
+        color: $Grey-light-2;
+        font-family: sans-serif;
+        z-index: 0;
+
+    }
+}
+
+
+
+
+///CALL TO ACTION
+.cta{
+    padding: 3.5rem 0;
+    text-align: center;
+
+    @media only screen and (max-width:$bp-medium){
+       padding: 2.5rem 0;
+    }
+
+    &__book-now{
+        font-size:2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 2.5rem;
+
+
+    }
+}
+
+
+//button
+.btn{
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: none;
+    background-image: linear-gradient(to right bottom ,$Primary-light,$Primary-dark);
+    color:#faf9f9;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    &__visible{
+        display: inline-block;
+        padding: 2rem 7.5rem;
+        height: 100%;
+        width: 100%;
+
+        transition: all 0.2s;
+
+    }
+    &__hidden{
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: -100%;
+        padding: 2rem 0;
+        height: 100%;
+        width: 100%;
+        transition: all 0.2s;
+
+
+    }
+    &:hover{
+        background-image: linear-gradient(to left,$Primary-light,$Primary-dark);
+    }
+    &:hover &__visible{
+        transform: translateY(100%);
+        
+
+        }
+    &:hover  &__hidden{
+            top: 0;
+        
+    }
+    &:focus{
+        outline: none;
+        animation: pulsate 6s;
+    }
+}
+
+@keyframes pulsate{
+    0%{
+        transform: scale(1);
+        box-shadow: none;
+    }
+    50%{
+        transform: scale(1.05);
+        box-shadow: 0 1rem 4rem rgba( #000000,  .25);
+    }
+    100%{
+        transform: scale(1);
+        box-shadow: none;
+    }
+}

@@ -1,0 +1,121 @@
+$Primary: #eb2f64;
+$Primary-light: #FF3366;
+$Primary-dark: #BA265D;
+
+$Grey-light-1: #faf9f9;
+$Grey-light-2: #f4f2f2;
+$Grey-light-3: #f0eeee;
+$Grey-light-4: #ccc;
+
+$Grey-dark-1: #333;
+$Grey-dark-2: #777;
+$Grey-dark-3: #999;
+ 
+
+.container{
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: $Grey-light-2 ;
+    box-shadow: 0 2rem 6rem rgba( #000000,  .4);
+    min-height: 50rem;
+
+
+    @media only screen and(max-width:$bp-largest){
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+
+    }
+    
+}
+.header{
+   // margin: 2rem;
+   // padding: 2rem;
+    height: 7rem; 
+    background-color: white;
+    border-bottom: 1px solid $Grey-light-3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    @media only screen and(max-width:$bp-smallest){
+       // flex-wrap: wrap;
+        //height: 13rem;
+      //  align-content: space-around;
+       
+ 
+     }
+
+}
+.content{
+    display: flex;
+    @media only screen and(max-width:$bp-medium){
+       flex-direction: column;
+
+    }
+    
+}
+.sidebar{
+    background-color: $Grey-dark-1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    flex: 0 0 18%;//partition krne ka shi trika  h sala ye yoh
+}
+.hotel-view{
+     background-color: white;
+    // background-color: orangered;
+     flex: 1 ;
+     //height: 80rem;
+     
+}
+
+.detail{
+    font-size: 1.4rem;
+    display: flex;
+    padding: 4.5rem;
+    background-color: $Grey-light-1;
+    border-bottom: 1px solid $Grey-light-2;
+
+    @media only screen and (max-width:$bp-medium){
+        padding: 3rem;
+    }
+
+    @media only screen and (max-width:$bp-small){
+        flex-direction: column;
+        
+    }
+
+
+
+}
+.description{
+    background-color: #fff;
+    box-shadow: 0 2rem 5rem rgba( #000000,  .2);
+    padding: 3rem;
+    flex: 0 0 60%;//grow:0 shrink:0 flex-basis:60%
+    margin-right: 4.5rem;
+    font-size: 1.4rem;
+
+
+    @media only screen and (max-width:$bp-medium){
+        padding: 2rem;
+        margin-right: 3rem;
+    }
+    @media only screen and (max-width:$bp-small){
+       margin-right: 0;
+       margin-bottom: 3rem;
+        
+    }
+
+
+}
+.user-reviews{
+  //  background-color: yellowgreen;
+  // font-size: ;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
